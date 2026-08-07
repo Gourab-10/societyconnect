@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: societyconnect
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+    disk:
+      name: societyconnect-db-data
+      mountPath: /data
+      sizeGB: 1

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand: deep indigo + warm amber */
+    --background: 36 33% 97%;
+    --foreground: 230 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 35% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 35% 12%;
+
+    --primary: 232 60% 22%;
+    --primary-foreground: 36 33% 97%;
+    --primary-glow: 232 70% 38%;
+
+    --secondary: 36 30% 92%;
+    --secondary-foreground: 230 35% 12%;
+
+    --muted: 36 20% 93%;
+    --muted-foreground: 230 12% 42%;
+
+    --accent: 28 92% 58%;
+    --accent-foreground: 230 35% 12%;
+    --accent-soft: 28 90% 92%;
+
+    --success: 152 55% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 18% 88%;
+    --input: 230 18% 88%;
+    --ring: 232 60% 22%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(ellipse at top left, hsl(28 95% 70% / 0.25), transparent 55%),
+                     radial-gradient(ellipse at bottom right, hsl(232 70% 50% / 0.18), transparent 55%),
+                     linear-gradient(180deg, hsl(36 40% 98%), hsl(36 33% 95%));
+    --gradient-primary: linear-gradient(135deg, hsl(232 60% 22%), hsl(232 70% 38%));
+    --gradient-accent: linear-gradient(135deg, hsl(28 92% 58%), hsl(14 88% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(36 30% 97%));
+
+    /* Shadows */
+    --shadow-soft: 0 1px 2px hsl(230 35% 12% / 0.04), 0 4px 12px hsl(230 35% 12% / 0.04);
+    --shadow-elegant: 0 10px 30px -12px hsl(232 60% 22% / 0.18), 0 2px 6px hsl(232 60% 22% / 0.06);
+    --shadow-glow: 0 20px 60px -20px hsl(28 92% 58% / 0.45);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-hero { background: var(--gradient-hero); }
+  .bg-gradient-primary { background: var(--gradient-primary); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .transition-smooth { transition: var(--transition-smooth); }
+  .text-balance { text-wrap: balance; }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.6) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+}
+
+@layer base {
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+}
