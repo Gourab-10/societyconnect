@@ -44,9 +44,10 @@ export async function seedData() {
     }
   });
 
-  // Admin and Guard Users
+  // Admin, Guard, and SuperAdmin Users
   insertUser.run('u-admin', 'Admin User', 'admin@societyconnect.com', '+91 00000 00000', defaultPassword, 'admin', null, null, null, 0);
   insertUser.run('u-guard', 'Main Gate Guard', 'guard@societyconnect.com', '+91 11111 11111', defaultPassword, 'guard', null, null, null, 0);
+  insertUser.run('u-superadmin', 'System Developer', 'dev@societyconnect.com', '+91 99999 99999', defaultPassword, 'superadmin', null, null, null, 0);
 
   // Seed Bills
   const insertBill = db.prepare(`

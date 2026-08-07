@@ -55,7 +55,8 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     owner: { label: 'Flat Owner', badge: 'Owner Mode', bg: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20' },
     tenant: { label: 'Tenant', badge: 'Tenant Mode', bg: 'bg-sky-500/10 text-sky-600 border-sky-500/20' },
     admin: { label: 'Committee Admin', badge: 'Admin Console', bg: 'bg-purple-500/10 text-purple-600 border-purple-500/20' },
-    guard: { label: 'Gate Security', badge: 'Security Kiosk', bg: 'bg-amber-500/10 text-amber-600 border-amber-500/20' }
+    guard: { label: 'Gate Security', badge: 'Security Kiosk', bg: 'bg-amber-500/10 text-amber-600 border-amber-500/20' },
+    superadmin: { label: 'System Developer', badge: 'Dev Console', bg: 'bg-indigo-500/10 text-indigo-600 border-indigo-500/20' }
   };
 
   const handleTriggerEmergency = () => {
@@ -127,7 +128,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 <div className="px-3 py-1.5 text-[10px] uppercase font-bold tracking-wider text-slate-400 border-b border-slate-100 dark:border-slate-800">
                   Switch System View
                 </div>
-                {(['owner', 'tenant', 'admin', 'guard'] as UserRole[]).map((r) => (
+                {(['owner', 'tenant', 'admin', 'guard', 'superadmin'] as UserRole[]).map((r) => (
                   <button
                     key={r}
                     onClick={() => {

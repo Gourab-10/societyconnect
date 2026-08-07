@@ -8,7 +8,7 @@ export function initializeSchema() {
       email TEXT UNIQUE NOT NULL,
       phone TEXT NOT NULL,
       password TEXT NOT NULL,
-      role TEXT NOT NULL, -- owner, tenant, admin, guard
+      role TEXT NOT NULL, -- owner, tenant, admin, guard, superadmin
       flatId TEXT,
       flatNumber TEXT,
       tower TEXT,
